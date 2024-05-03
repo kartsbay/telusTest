@@ -6,6 +6,7 @@ Test project for Telus assignment
 ### DB
 This is a spring boot application, having a sqllite database as the persistance layer.
 </br>On application start up, a table todo is created and an initial record is inserted as initialization.
+</br>Change property value ```sqllite.db.url``` to change location of datafile
 
 ### Rest
 The application has a Todo model and functionality has been added to fetch the Todo model, save, modify and delete the model.
