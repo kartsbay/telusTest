@@ -29,5 +29,5 @@ On application startup the swagger link can be access on the url- http://localho
 
 ## Tests:
 1. Unit tests have been configured for the service
-2. ntegration tests run the spring boot tests
+2. Integration tests run the spring boot tests
 
