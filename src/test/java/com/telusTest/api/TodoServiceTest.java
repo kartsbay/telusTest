@@ -25,12 +25,6 @@ public class TodoServiceTest {
     private TodoService todoService;
 
     @Test
-    public void testCreateItem() {
-
-        // ...
-    }
-
-    @Test
     public void testFindAllTodo(){
         List<Todo> list = new ArrayList<Todo>();
         Todo tdOne = new Todo(1, "desc", "compDesc");
@@ -43,7 +37,6 @@ public class TodoServiceTest {
 
         when(todoRepository.findAll()).thenReturn(list);
 
-        //test
         List<Todo> todoList = todoService.allTodo();
         assertEquals(3, todoList.size());
         verify(todoRepository, times(1)).findAll();

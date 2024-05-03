@@ -31,8 +31,8 @@ public class TodoRestController {
     }
 
     @PostMapping("/todo")
-    Todo addTodo(@RequestBody Todo todo) {
-        return todoService.addTodo(todo);
+    ResponseEntity<Todo> addTodo(@RequestBody Todo todo) {
+        return new ResponseEntity<>(todoService.addTodo(todo), HttpStatus.OK);
     }
 
     @PutMapping("/todo/{id}")
