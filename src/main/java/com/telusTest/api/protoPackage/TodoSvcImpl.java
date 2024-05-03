@@ -16,6 +16,7 @@ public class TodoSvcImpl extends TodoSvcGrpc.TodoServiceImplBase{
         this.todoService = todoService;
     }
     /**
+     * get todo by id
      */
     public void getTodo(GetTodoRequest request,
                         StreamObserver<TodoResponse> responseObserver) {
@@ -33,6 +34,7 @@ public class TodoSvcImpl extends TodoSvcGrpc.TodoServiceImplBase{
     }
 
     /**
+     * get all todo
      */
     public void getAllTodo(Empty request,
                            StreamObserver<TodoResponse> responseObserver) {
@@ -48,6 +50,7 @@ public class TodoSvcImpl extends TodoSvcGrpc.TodoServiceImplBase{
     }
 
     /**
+     * update todo by id
      */
     public void updateTodo(TelusTodoObj.TodoReq request,
                            io.grpc.stub.StreamObserver<TodoResponse> responseObserver) {
@@ -65,6 +68,7 @@ public class TodoSvcImpl extends TodoSvcGrpc.TodoServiceImplBase{
     }
 
     /**
+     * delete todo
      */
     public void deleteTodo(GetTodoRequest request,
                            io.grpc.stub.StreamObserver<Empty> responseObserver) {

@@ -25,7 +25,6 @@ public class TodoService {
         return todoRepository.insert(todo);
     }
 
-
     public Todo updateTodo(Todo todo, int id) {
         return todoRepository.replace(id, todo);
     }

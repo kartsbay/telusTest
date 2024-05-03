@@ -1,14 +1,8 @@
 package com.telusTest.api.model;
 
 
-
-
 public class Todo {
-    public int getId() {
-        return id;
-    }
-
-    public Todo(){
+    public Todo() {
         super();
     }
 
@@ -16,6 +10,14 @@ public class Todo {
         this.id = id;
         this.description = description;
         this.completionStatus = completionStatus;
+    }
+
+    private int id;
+    private String description;
+    private String completionStatus;
+
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {
@@ -38,7 +40,4 @@ public class Todo {
         this.completionStatus = completionStatus;
     }
 
-    private int id;
-    private String description;
-    private String completionStatus;
 }

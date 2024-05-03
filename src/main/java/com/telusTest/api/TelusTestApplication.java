@@ -36,7 +36,6 @@ public class TelusTestApplication{
 	@Bean
 	public CommandLineRunner startup() {
 		return args -> {
-			//jdbcTemplate.execute("DROP TABLE  IF EXISTS todo");
 			jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS todo(" +
 					"id INTEGER PRIMARY KEY   AUTOINCREMENT, description TEXT, completion_status TEXT)");
 
