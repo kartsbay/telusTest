@@ -23,39 +23,4 @@ public class TelusTestApplication{
 		SpringApplication.run(TelusTestApplication.class, args);
 	}
 
-	@Autowired
-	JdbcTemplate jdbcTemplate;
-
-	@Autowired
-	TodoService todoService;
-
-	@Value("${grpc.port}")
-	private int grpcPort;
-
-
-	@Bean
-	public CommandLineRunner startup() {
-		return args -> {
-			jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS todo(" +
-					"id INTEGER PRIMARY KEY   AUTOINCREMENT, description TEXT, completion_status TEXT)");
-
-			jdbcTemplate.update("INSERT INTO todo(description, completion_status) VALUES (?,?)", "desc", "stat");
-
-			List<Todo> todoLst = jdbcTemplate.query(
-					"SELECT id, description, completion_status FROM todo",
-					new BeanPropertyRowMapper(Todo.class));
-			for (Todo tod : todoLst) {
-				System.out.println(tod.getDescription() + tod.getCompletionStatus() + tod.getId());
-
-			}
-
-			Server server = ServerBuilder
-					.forPort(grpcPort)
-					.addService(new TodoSvcImpl(todoService)).build();
-
-			server.start();
-			server.awaitTermination();
-		};
-	}
-
 }
