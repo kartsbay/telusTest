@@ -3,10 +3,13 @@ Test project for Telus assignment
 
 
 ## Project description
-### Rest
+### DB
 This is a spring boot application, having a sqllite database as the persistance layer.
+</br>On application start up, a table todo is created and an initial record is inserted as initialization.
+
+### Rest
 The application has a Todo model and functionality has been added to fetch the Todo model, save, modify and delete the model.
-The rest end points are exposed on port 8080, the default tomcat spring boot port
+</br>The rest end points are exposed on port 8080, the default tomcat spring boot port
 
 ### GRPC
 The grpc server comes up on port 9090, which is configurable from grpc.port under application properties.
