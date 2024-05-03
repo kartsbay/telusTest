@@ -12,8 +12,8 @@ The rest end points are exposed on port 8080, the default tomcat spring boot por
 The grpc server comes up on port 9090, which is configurable from grpc.port under application properties.
 The grpc end points have the same functionality exposed by the rest end points
 The porto file is under src/proto/TelusTodo.proto
-To generate new protos run ``` gradle build```
-</br> This generates the java files under generated folder at hierarchy - $projectDir/../generated
+</br>To generate new protos run ``` gradle build```
+</br>This generates the java files under generated folder at hierarchy - $projectDir/../generated
 
 
 ## </ins>Swagger:</ins>
@@ -25,5 +25,6 @@ On application startup the swagger link can be access on the url- http://localho
 2. To run the application ```gradle bootRun```
 
 ## Tests:
-1. Unit tests have been configured
+1. Unit tests have been configured for the service
+2. ntegration tests run the spring boot tests
 
