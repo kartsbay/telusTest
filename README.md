@@ -1,5 +1,5 @@
 ## TelusTest
-Test project for Telus assignment
+Spring boot experiment project
 
 
 ## Project description
