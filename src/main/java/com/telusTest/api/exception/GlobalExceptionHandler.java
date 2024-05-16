@@ -2,6 +2,7 @@ package com.telusTest.api.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -30,6 +31,12 @@ public class GlobalExceptionHandler {
         return new RestErrorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 ex.getMessage(),
+                LocalDateTime.now());
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public RestErrorResponse handleAccessDeniedException(AccessDeniedException e) {
+        return new RestErrorResponse(HttpStatus.FORBIDDEN.value(), e.getMessage(),
                 LocalDateTime.now());
     }
 

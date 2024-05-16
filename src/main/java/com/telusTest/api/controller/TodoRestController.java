@@ -1,7 +1,6 @@
 package com.telusTest.api.controller;
 
 import com.telusTest.api.model.Todo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,13 +13,13 @@ import java.util.List;
 public class TodoRestController {
     TodoService todoService;
 
-    @Autowired
     public TodoRestController( TodoService todoService){
         this.todoService = todoService;
 
     }
 
     @GetMapping("/todo/{id}")
+    //@PreAuthorize("hasRole('USER')")
     ResponseEntity<Todo> getTodo(@PathVariable int id) {
         return new ResponseEntity<>(todoService.getTodo(id),HttpStatus.OK);
     }

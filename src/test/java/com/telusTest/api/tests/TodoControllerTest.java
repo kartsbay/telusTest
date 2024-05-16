@@ -6,7 +6,6 @@ import com.telusTest.api.service.TodoService;
 import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -15,20 +14,16 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import com.telusTest.api.model.Todo;
+import com.telusTest.api.utils.JwtUtil;
 
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import java.util.Arrays;
 
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import com.telusTest.api.security.JwtAuthFilter;
 
 @WebMvcTest(controllers = TodoRestController.class)
 @AutoConfigureMockMvc(addFilters = false)
@@ -43,6 +38,10 @@ public class TodoControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
     Todo todo;
+    @MockBean
+    private JwtUtil JwtUtil;
+    @MockBean
+    JwtAuthFilter JwtAuthFilter;
 
     @BeforeEach
     public void init() {
